@@ -1,0 +1,48 @@
+{% extends 'base.html'%}
+
+{% block searchnotes %}
+{% include 'search.html'%}
+
+<div class="container mt-4">
+    <div class="row">
+        <div style="padding-top: 1cm;" class="col-lg-6">
+          <h1 class="title" >
+            
+            <span class="darkblue bold">Notes</span>
+          </h1>
+          <p style="padding-top: 1cm; line-height: 2;" class="text">At our notes website, we've designed our search functionality with your convenience in mind. You can make the most of your search experience by using small, focused keywords or entering the name of a particular topic. Short and specific search terms work wonders in retrieving the most relevant results quickly. Whether you're looking for detailed notes on a specific subject or seeking concise information, our search engine is optimized to deliver precisely what you need. </p>
+  
+        </div>
+        <div class="col-lg-6">
+            {% load static %}
+            <img style="height: 100%;width: 100%; padding-left: 1cm;" class="img-fluid no-bg-image"src="{% static 'images/notes.png' %}" alt="Image" class="img-fluid">
+        </div>
+    </div>
+    <div class="row">
+        <h2 style="text-align: center; padding-bottom: 1cm;" class="title">All Notes </h2>
+        {% for note in notes %}
+        <div class="col-md-4 mb-4" >
+            <div class="card" >
+                <div class="card-body" >
+                    <h5 class="card-title heading" style="text-align: center;">{{ note.title }}</h5>
+                    <p class="card-text text">{{ note.description }}</p>
+                    {% if user.is_authenticated %}
+                    <a href="{{ note.pdf_file.url }}" class="custom-button ">Download PDF</a>
+                    {% else %}
+                    <a href="{% url 'login'%}" class="custom-button "> Login to Download PDF</a>
+                    {% endif %}
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">By: {{ note.author.username }}</small>
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:3 and not forloop.last %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

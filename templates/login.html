@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block login%}
+
+
+<div class="bg-image"></div>
+<div class="form-container-wrapper" style="padding-top: 2cm;">
+    <div class="form-container shadow">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <div style="text-align: center;">
+                <h3>
+                    <span class="create-text">Thanks for</span>
+                    <span class="new-account-text">Joining Us!!</span>
+                </h3>
+            </div>
+            <div class="mb-3">
+                <label for="Username" class="form-label">Username</label>
+                <input type="text" class="form-control" name="username" id="Username">
+            </div>
+            <div class="mb-3">
+                <label for="Password1" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" id="Password1">
+            </div>
+            <div class="mb-3">
+                {% if error_login %}
+                <div class="alert alert-danger">{{ error_login }}</div>
+                {% endif %}
+                {% if doesnot_exist %}
+                <div class="alert alert-danger">{{ doesnot_exist}}</div>
+                {% endif %}
+            </div>
+            <div style="padding-bottom: 10px; text-align: center;">
+                <button style="width: 200px;" type="submit" class="btn btn-primary">Login</button>
+            </div>
+            <div>
+                <h3 style="text-align: center; color: aqua;">Or</h3>
+            </div>
+            <div style="text-align: center;">
+                <a href="{% url 'signup'%}" class="mb-3 form-label">Create account</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

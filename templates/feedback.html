@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block feedback %}
+
+<div class="bg-image">
+<div class="form-container-wrapper" style="align-items: start; padding-top: 1cm;">
+    <div class="shadow" >
+        <form action="{% url 'feedback' %}" method="post">
+            {% csrf_token %}
+            <div style="text-align: center;">
+                <h3>
+                    <span class="bold" style="color: azure;"  >Feedback</span>
+                </h3>
+            </div>
+
+            <div class="mb-3">
+                <textarea  style="border-radius: 10%;" name="feedback" rows="8" cols="45" maxlength="300" placeholder="      Your Message here...." required></textarea>
+            </div>
+            <div class="mb-3">
+                {% if thank %}
+                <div class="alert alert-success">{{ thank }}</div>
+                {% endif %}
+            </div>
+
+            <div style="padding-top: 3px; text-align: center;">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    {% endblock %}

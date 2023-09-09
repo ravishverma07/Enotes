@@ -1,0 +1,79 @@
+{% load static %}
+
+<div class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary shadow ">
+        <div class="container-fluid">
+            <a href="/">
+                <img src="{% static '/images/e.png' %}" style="height: 2cm; width: 2cm; margin: 0%;">
+            </a>
+            <h1
+                style="color: azure; font-family: 'Playfair Display', serif; font-size: 46px; font-weight: bold; padding-top: 10px;">
+                Notes</h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a style=" color: azure;" class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: azure;" class="nav-link" href="{% url 'notes' %}">Notes</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a style="color: azure;" class="nav-link dropdown-toggle" href="" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Subjects
+                        </a>
+                        <ul class="dropdown-menu  mb-2 mb-lg-0">
+                            <li><a class="dropdown-item" href="{% url 'C'%}">C Programming</a></li>
+                            <li><a class="dropdown-item" href="{% url ''%}">Office Auto.</a></li>
+                            <li><a class="dropdown-item" href="{% url ''%}">Computer Fundamentals</a></li>
+                            <li><a class="dropdown-item" href="{% url ''%}">English</a></li>
+                            <li><a class="dropdown-item" href="{% url ''%}">Mathematics</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: azure;" class="nav-link" href="#">About Me</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        {% if user.gender == 'M' %}
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                <img src="{% static '/images/avatar.png' %}"
+                                    style="height: 50px; width: 50px; margin: 0%; border-radius: 50%;">
+                            </a>
+                        {% elif user.gender == 'F' %}
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                <img src="{% static '/images/note.png' %}"
+                                    style="height: 50px; width: 50px; margin: 0%; border-radius: 50%;">
+                            </a>
+                        {% else %}
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img src="{% static '/images/avatar.png' %}"
+                                style="height: 50px; width: 50px; margin: 0%; border-radius: 50%;">
+                        </a>
+                        {% endif %}
+                        <ul class="dropdown-menu dropdown-center  mb-2 mb-lg-0">
+                            <li> <a style="text-align: center;" class="nav-link" href="{% url 'profile' %}">{{user.username}}</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li> <a style="text-align: center;" class="nav-link" href="{% url 'logout' %}">Logout</a>
+                            </li>
+                    {% else %}
+                            <li class="nav-item ">
+                                <a style="color: azure;" class="nav-link" href="{% url 'signup' %}">Register/Login</a>
+                            </li>
+                        </ul>                       
+                    {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

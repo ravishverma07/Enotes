@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block account %}
+
+<div class="bg-image"></div>
+<div class="form-container-wrapper"style="padding-top: 2cm;">
+    <div class="form-container shadow" >
+        <form action="{% url 'signup' %}" method="post">
+            {% csrf_token %}
+            <div style="text-align: center;">
+                <h3>
+                    <span class="create-text">Create a</span>
+                    <span class="new-account-text">New Account</span>
+                </h3>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" placeholder="please enter a valid email" id="email"
+                    name="email" aria-describedby="emailHelp" required>
+            </div>
+            <div class="mb-3">
+                <label for="Username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="Username" name="Username" required>
+            </div>
+            <div class="mb-3">
+                <label for="Password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="Password" name="Password" required>
+            </div>
+            <div class="mb-3">
+                <label for="ConfirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword">
+            </div>
+            <div class="mb-3" style="display: flex; margin-bottom: 0%;">
+                <label class="form-label">Gender</label>
+                <div class="form-check form-label" style="padding-left: 1cm;">
+                    <input class="form-check-input" type="radio" value="M" id="maleRadio" name="gender" required>
+                    <label class="form-check-label" for="maleRadio">Male</label>
+                </div>
+                <div class="form-check form-label" style="padding-left: 1cm;">
+                    <input class="form-check-input" type="radio" value="F" id="femaleRadio" name="gender" >
+                    <label class="form-check-label" for="femaleRadio">Female</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                {% if error_message %}
+                <div class="alert alert-danger">{{ error_message }}</div>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                {% if already_exist %}
+                <div class="alert alert-danger">{{ already_exist }}</div>
+                {% endif %}
+            </div>
+            <div>
+                <a href="{% url 'login'%}" class="mb-3 form-label">Already have an account? Click here</a>
+            </div>
+            <div style="padding-top: 10px;">
+                <button type="submit" class="btn btn-primary">Create account</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    {% endblock %}

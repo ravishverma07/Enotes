@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+
+{% block home %}
+
+{% include 'search.html'%}
+
+<div class="container " style="max-width: 90%;" >
+    <div class="row">
+        <div style="padding-top: 1cm;" class="col-lg-6">
+            {% if user.is_authenticated %}
+              {% if user.gender == 'M' %}
+              <h1 class="title" >
+                <span class="blue">Welcome </span>
+                <span class="darkblue bold">{{user.username}} 😇</span>
+              </h1>
+              {% elif user.gender == 'F' %}
+              <h1 class="title" >
+                <span class="blue">Welcome </span>
+                <span class="darkblue bold">{{user.username}} ✿</span>
+              </h1>
+              {% else %}
+           
+              <h1 class="title" >
+                  <span class="blue">Welcome to</span>
+                  <span class="darkblue bold">E Notes</span>
+                </h1>
+              {% endif %}
+            {% else %}
+           
+            <h1 class="title" style="font-weight: 700;">
+                <span class="blue">Welcome to</span>
+                <span class="darkblue bold">E Notes</span>
+              </h1>
+            {% endif %}
+
+            <h1 class="title" style="font-weight: 700;">
+              <span class="darkblue bold">Learn</span>
+              <span class="blue">With E Notes</span>
+            </h1>
+            <div style="padding-top: 1cm;">
+            <h6 class="heading"> 
+               <span class="blue">Empower Your Learning Journey </span>
+                <span class="darkblue bold" >Now!</span>
+              </h6>
+            <h6 class="heading"> 
+              <span class="blue" >Your Semester's Potential with</span>
+              <span class="darkblue bold"> E-Notes</span>
+              </h6>
+            <h6 class="heading">
+              <span class="blue" >Start Exploring Your </span>
+              <span class="darkblue bold"> Semester's Notes </span>
+              <span class="blue"> Today!</span>
+            </h6>
+            <div style="padding-top: 1cm;">
+            <a href="{% url 'notes' %}" class="custom-button">Explore Notes</a>
+            </div>
+            </div>
+
+        </div>
+        <div class="col-lg-6">
+            {% load static %}
+            <img style="height: 100%;width: 100%; padding-left: 1cm; padding-top: 1cm;" class="img-fluid no-bg-image"src="{% static 'images/ima.png' %}" alt="Image" class="img-fluid">
+        </div>
+    </div>
+</div>
+<div class="container my-5 intro-section">
+  <div class="row">
+   <div class="col-lg-4 col-md-6">
+          <div style="display: flex; align-items: center;">
+            <div style="width: 20%; height: 10%;">
+                <img  class="img-fluid no-bg-image imageheight" src="{% static 'images/notebook.png' %}" alt="Image" class="img-fluid">
+              </div>
+              <div style="padding-left: 15px; padding-top: 5px; ">
+                  <h3 style="padding-top: 5px; color: azure;">Notes</h3>
+              </div>
+          </div>
+          <div>
+            <p style="text-align: left; color: rgb(174, 183, 183);">Under the 'Notes' section, you'll find a diverse collection of knowledge that we've meticulously gathered from various sources, including Google Chat GPT and other online resources, as well as comprehensive class notes.</p>
+          </div>
+       </div>
+      <div class="col-lg-4 col-md-6">
+        <div style="display: flex; align-items: center;">
+          <div style="width: 20%; height: 10%;">
+              <img  class="img-fluid no-bg-image imageheight" src="{% static 'images/updatednotes.png' %}" alt="Image" class="img-fluid">
+            </div>
+            <div style="padding-left: 15px;">
+                <h3 style="padding-top: 5px; color: azure;">Daily Updates</h3>
+            </div>
+        </div>
+        <div>
+          <p style="text-align: left; color: rgb(174, 183, 183);">Welcome to our daily updates of notes, where we bring you a continuous stream of insightful content spanning various subjects and topic. Explore our daily notes to stay informed and inspired.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div style="display: flex; align-items: center;">
+          <div style="width: 20%; height: 10%;">
+            <img  class="img-fluid no-bg-image imageheight" src="{% static 'images/feedback.png' %}" alt="Image" class="img-fluid">
+          </div>
+          <div style="padding-left: 15px;">
+              <h3 style="padding-top: 5px; color: azure;">Feedbacks</h3>
+          </div>
+        </div>
+      <div>
+        <p style="text-align: left; color: rgb(174, 183, 183);">Under the 'Feedback' section,  you can rate our services and provide valuable feedback. If you wish to suggest changes or contribute additional notes, we welcome your thoughts and encourage you to submit them.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container " style="max-width: 90%;" >
+  <div class="row">
+      <div style="padding-top: 1cm;" class="col-lg-6">
+        <h1 class="title" style="padding-top: 1cm;">
+          <span class="blue">Hand Written</span>
+          <span class="darkblue bold">Notes</span>
+        </h1>
+        <p style="padding-top: 1cm; line-height: 2;" class="text">Explore our collection of 'Handwritten Notes' in PDF format, available for download. To access these valuable resources, simply create an account. These special notes offer a personal touch to your learning materials, providing a unique perspective on the subject. Join us today to get your hands on these exclusive PDF files and enhance your study materials!</p>
+
+      </div>
+      <div class="col-lg-6" style="height: auto;">
+          {% load static %}
+          <img style="height: 100%;width: 100%; padding-left: 1cm;" class="img-fluid no-bg-image"src="{% static 'images/hand.png' %}" alt="Image" class="img-fluid">
+      </div>
+  </div>
+</div>
+<div class="container " style="max-width: 90%;" >
+  <div class="row">
+      <div style="padding-top: 1cm;" class="col-lg-6">
+        <h1 class="title" >
+          <span class="blue">Subject-Wise</span>
+          <span class="darkblue bold">Note Classification</span>
+        </h1>
+        <p style="padding-top: 1cm; line-height: 2;" class="text">Discover an organized treasure trove of knowledge in our 'Subject-Wise Note Classification' section. Here, we've meticulously categorized our notes into various subjects, making it easier than ever to find the information you need. Whether you're interested in programming in C , mathematics, Office Automation, Computer Fundamental and  English , our categorized notes simplify your search, ensuring that you have quick access to relevant content for your studies and interests. Dive into this structured collection and explore the world of learning made simple</p>
+
+      </div>
+      <div class="col-lg-6">
+          {% load static %}
+          <img style="height: 100%;width: 100%; padding-left: 1cm;" class="img-fluid no-bg-image"src="{% static 'images/subjectwise.png' %}" alt="Image" class="img-fluid">
+      </div>
+  </div>
+</div>
+<div class="container " style="max-width: 90%;" >
+  <div class="row">
+      <div style="padding-top: 1cm;" class="col-lg-6">
+        <h1 class="title" >
+          <span class="blue">Search</span>
+          <span class="darkblue bold">Topic</span>
+        </h1>
+        <p style="padding-top: 1cm; line-height: 2;" class="text">At our notes website, we've designed our search functionality with your convenience in mind. You can make the most of your search experience by using small, focused keywords or entering the name of a particular topic. Short and specific search terms work wonders in retrieving the most relevant results quickly. Whether you're looking for detailed notes on a specific subject or seeking concise information, our search engine is optimized to deliver precisely what you need. </p>
+
+      </div>
+      <div class="col-lg-6">
+          {% load static %}
+          <img style="height: 100%;width: 100%; padding-left: 1cm;" class="img-fluid no-bg-image"src="{% static 'images/search.png' %}" alt="Image" class="img-fluid">
+      </div>
+  </div>
+</div>
+<div class="container mt-4">
+  <h1 class="title darkblue bold" style="text-align: center; padding-bottom: 2cm;">Feedbacks</h1>
+  <div class="row">
+    {% for feedbacks in feedback %}
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text text">{{ feedbacks.text }}</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted" style="font-size: 20px;"> {{ feedbacks.user.username }}</small>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div style="text-align: center; width: 100%;padding-bottom: 2cm;">
+    {% if user.is_authenticated %}
+      <a href="{% url 'feedback' %}" class="custom-button">Review Us</a>
+    {% else %}
+      <p class="heading">Please <a href="{% url 'login' %}" class="custom-button text">Login</a> to review us.</p>
+    {% endif %}
+  </div>
+</div>
+
+
+{% endblock %}
