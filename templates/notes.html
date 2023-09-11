@@ -21,16 +21,18 @@
     <div class="row">
         <h2 style="text-align: center; padding-bottom: 1cm;" class="title">All Notes </h2>
         {% for note in notes %}
-        <div class="col-md-4 mb-4" >
-            <div class="card" >
-                <div class="card-body" >
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
                     <h5 class="card-title heading" style="text-align: center;">{{ note.title }}</h5>
-                    <p class="card-text text">{{ note.description }}</p>
+                    <p class="card-text over">{{ note.description }}</p>
+                    <div style="margin-top: auto;">
                     {% if user.is_authenticated %}
-                    <a href="{{ note.pdf_file.url }}" class="custom-button ">Download PDF</a>
+                    <a href="{{ note.pdf_file.url }}" class="custom-button" >Download PDF</a>
                     {% else %}
-                    <a href="{% url 'login'%}" class="custom-button "> Login to Download PDF</a>
+                    <a href="{% url 'login'%}" class="custom-button"> Login to Download PDF</a>
                     {% endif %}
+                    </div>
                 </div>
                 <div class="card-footer">
                     <small class="text-muted">By: {{ note.author.username }}</small>

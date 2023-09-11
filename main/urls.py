@@ -6,9 +6,9 @@ urlpatterns = [
     path('search',views.search, name="search"),
     path('feedback',views.feedback, name="feedback"),
     path('C',views.cpro, name="C"),
-    path('',views., name=""),
-    path('',views., name=""),
-    path('',views., name=""),
-    path('',views., name=""),
+    path('office',views.office, name="office"),
+    path('cf',views.cf, name="cf"),
+    path('eng',views.eng, name="eng"),
+    path('maths',views.maths, name="maths"),
 
     ]

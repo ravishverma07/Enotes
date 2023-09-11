@@ -4,13 +4,25 @@ from django.db.models import Q
 
 
 def home(request):
-    feedback = Feedback.objects.all()
+    feedback = Feedback.objects.order_by('-id')[:6]
     return render(request, 'home.html',{'feedback':feedback})
 
 def notes(request):
     notes = Note.objects.all()
     return render(request,'notes.html', {'notes' : notes})
 def cpro(request):
+    notes = Note.objects.all()
+    return render(request,'c_programming.html', {'notes' : notes})
+def office(request):
+    notes = Note.objects.all()
+    return render(request,'c_programming.html', {'notes' : notes})
+def cf(request):
+    notes = Note.objects.all()
+    return render(request,'c_programming.html', {'notes' : notes})
+def eng(request):
+    notes = Note.objects.all()
+    return render(request,'c_programming.html', {'notes' : notes})
+def maths(request):
     notes = Note.objects.all()
     return render(request,'c_programming.html', {'notes' : notes})
 
