@@ -8,23 +8,13 @@
     <div class="row">
         <div style="padding-top: 1cm;" class="col-lg-6">
             {% if user.is_authenticated %}
-              {% if user.gender == 'M' %}
+            
               <h1 class="title" >
                 <span class="blue">Welcome </span>
                 <span class="darkblue bold">{{user.username}} 😇</span>
               </h1>
-              {% elif user.gender == 'F' %}
-              <h1 class="title" >
-                <span class="blue">Welcome </span>
-                <span class="darkblue bold">{{user.username}} ✿</span>
-              </h1>
-              {% else %}
-           
-              <h1 class="title" >
-                  <span class="blue">Welcome to</span>
-                  <span class="darkblue bold">E Notes</span>
-                </h1>
-              {% endif %}
+
+
             {% else %}
            
             <h1 class="title" style="font-weight: 700;">

@@ -54,4 +54,3 @@ def feedback(request):
         thank = "Thank You for your Feedback"
         
     return render(request,'feedback.html',{'thank': thank})
-

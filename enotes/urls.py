@@ -16,13 +16,16 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls.static import static
-
+from allauth.socialaccount import providers
 from django.contrib import admin
 from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('main.urls')),
-    path('account/',include('accounts.urls'),name= 'account')
+    path('account/',include('accounts.urls'),name= 'account'),
+    path('accounts/',include('allauth.urls')),
+    path('accounts/', include('allauth.socialaccount.urls')),
+
 ]
 
 

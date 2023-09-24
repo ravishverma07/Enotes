@@ -23,17 +23,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-$^=a(l3a3_pjd-ei1t3o_0&0mrlsmt2tuwfoc&)jtzb8^jw8#v'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
+
+SITE_ID = 2
+
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    # Other authentication backends if any
+    'allauth.account.auth_backends.AuthenticationBackend'
+
 ]
 
-# Application definition
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -42,9 +46,31 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'main',
-    'accounts'
+    'accounts',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    
 ]
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': '21114626894-150nec0uqool8ah397q4lqhshsdqilrf.apps.googleusercontent.com',
+            'secret': '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',
+            'key': 'AIzaSyDc8G06sgEDOjYR_yAI0mUYm7br9dtob_Y',
+        },
+        'SCOPE': ['profile','email',],
+         'AUTH_PARAMS': {'access_type': 'online'},
+        'METHOD': 'oauth2',
+        'VERIFIED_EMAIL': True,
+    },
+}
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,6 +80,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'enotes.urls'
@@ -77,7 +104,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'enotes.wsgi.application'
 
-
+LOGIN_REDIRECT_URL = '/'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
