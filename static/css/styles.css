@@ -150,10 +150,18 @@ nav ul li {
 .card-body{
     display: flex;
     flex-direction: column;
-    
-    
 }
 
+.profilepic {
+    height: 40px; 
+    width: 40px;
+    margin: 0%; 
+    border-radius: 50%;
+}
+.profilepic:hover {
+    
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8); 
+  }
 .over {
     max-height: 110px;
     overflow-y: auto;

@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 SITE_ID = 2
 
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
+
     'allauth.account.auth_backends.AuthenticationBackend'
 
 ]
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'main',
-    'accounts',
+    'authsystem',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -84,12 +84,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'enotes.urls'
-AUTH_USER_MODEL = 'accounts.CustomUser'
+AUTH_USER_MODEL = 'authsystem.CustomUser'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -97,12 +97,14 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'main.contxt.google_user_data',
             ],
         },
     },
 ]
-
+SOCIALACCOUNT_LOGIN_ON_GET=True
 WSGI_APPLICATION = 'enotes.wsgi.application'
+
 
 LOGIN_REDIRECT_URL = '/'
 # Database
@@ -111,7 +113,7 @@ LOGIN_REDIRECT_URL = '/'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'sqlite3.db',
     }
 }
 

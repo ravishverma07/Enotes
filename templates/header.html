@@ -36,28 +36,24 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a style="color: azure;" class="nav-link" href="#">About Me</a>
+                        <a style="color: azure;" class="nav-link" href="#">About Us</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     {% if user.is_authenticated %}
-                    <li class="nav-item dropdown">
-                        {% if user.gender == 'M' %}
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                                <img src="{% static '/images/avatar.png' %}"
+                      <li class="nav-item dropdown">
+                        {% if google_user.profile_photo_url %} 
+                           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                           <img class="profilepic" src="{{google_user.profile_photo_url}}"
                                     style="height: 50px; width: 50px; margin: 0%; border-radius: 50%;">
-                            </a>
-                        {% elif user.gender == 'F' %}
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                                <img src="{% static '/images/note.png' %}"
-                                    style="height: 50px; width: 50px; margin: 0%; border-radius: 50%;">
-                            </a>
+                           </a>
                         {% else %}
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img src="{% static '/images/avatar.png' %}"
-                                style="height: 50px; width: 50px; margin: 0%; border-radius: 50%;">
-                        </a>
-                        {% endif %}
+                           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                           <img class="profilepic" src="static/images/avatar.png"
+                                     style="height: 50px; width: 50px; margin: 0%; border-radius: 50%;">
+                           </a>
+                        {% endif %}                    
+                       
                         <ul class="dropdown-menu dropdown-center  mb-2 mb-lg-0">
                             <li> <a style="text-align: center;" class="nav-link" href="{% url 'profile' %}">{{user.username}}</a></li>
                             <li>
@@ -67,7 +63,7 @@
                             </li>
                     {% else %}
                             <li class="nav-item ">
-                                <a style="color: azure;" class="nav-link" href="{% url 'signup' %}">Register/Login</a>
+                                <a style="color: azure;" class="nav-link" href="{% url 'logapi' %}">Sign Up</a>
                             </li>
                         </ul>                       
                     {% endif %}

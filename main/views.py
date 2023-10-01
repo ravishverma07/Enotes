@@ -1,11 +1,52 @@
 from django.shortcuts import render
-from .models import Note , Feedback
+from .models import Note , Feedback,CustomUser
 from django.db.models import Q
+from allauth.socialaccount.models import SocialAccount
+
 
 
 def home(request):
     feedback = Feedback.objects.order_by('-id')[:6]
-    return render(request, 'home.html',{'feedback':feedback})
+    
+
+    if request.user.is_authenticated and request.user.socialaccount_set.filter(provider='google').exists():
+        # Get the user's data from the OAuth response
+        social_account = SocialAccount.objects.get(user=request.user, provider='google')
+        user_data = social_account.extra_data
+
+        # Extract user information
+        name = user_data.get('name', '')
+        username = user_data.get('username', '')
+        email = user_data.get('email', '')
+        profile_photo_url = user_data.get('picture', '')
+        # print(user_data,"userdata")
+        # print(name,"name")
+        # print(username,"username")
+        # print(email,"email")
+        # print(profile_photo_url,"photo")
+
+    
+        user_profile, created = CustomUser.objects.get_or_create(
+        username=username,
+        defaults={
+            'name': name,
+            'email': email,
+            'profile_photo_url': profile_photo_url,
+          
+        }
+    )
+        if user_profile.name != name or user_profile.email != email or user_profile.profile_photo_url != profile_photo_url:
+           user_profile.name = name
+           user_profile.email = email
+           user_profile.profile_photo_url = profile_photo_url
+           user_profile.save()
+
+    context = {
+        
+            'feedback':feedback
+        }
+
+    return render(request, 'home.html',context)
 
 def notes(request):
     notes = Note.objects.all()
@@ -35,8 +76,8 @@ def search(request):
             Q(title__icontains=query) | Q(description__icontains=query)
         )
     else:
-        notes = Note.objects.none()  # Return an empty queryset if no query is provided
-    
+        notes = Note.objects.none() 
+
     return render(request, 'search_result.html', {'notes': notes, 'query': query})
 
 def feedback(request):

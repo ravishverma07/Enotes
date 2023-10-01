@@ -14,11 +14,6 @@
                 </h3>
             </div>
             <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" placeholder="please enter a valid email" id="email"
-                    name="email" aria-describedby="emailHelp" required>
-            </div>
-            <div class="mb-3">
                 <label for="Username" class="form-label">Username</label>
                 <input type="text" class="form-control" id="Username" name="Username" required>
             </div>
@@ -52,17 +47,11 @@
                 <div class="alert alert-danger">{{ already_exist }}</div>
                 {% endif %}
             </div>
-            <div>
-                <a href="{% url 'login'%}" class="mb-3 form-label">Already have an account? Click here</a>
-            </div>
+
             <div style="padding-top: 10px;">
                 <button type="submit" class="btn btn-primary">Create account</button>
             </div>
            
-            <div style="padding-top: 10px;">
-                {% load socialaccount %}
-                <a href="{% provider_login_url 'google' %}" class="btn btn-google">Login with Google</a>
-
 
             </div>
         </form>

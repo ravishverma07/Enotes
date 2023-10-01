@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load socialaccount %}
+{% block google %}
+
+
+<div class="bg-image"></div>
+<div class="form-container-wrapper"style="padding-top: 2cm;">
+    <div class="form-container shadow" >
+        
+            {% csrf_token %}
+            <div style="text-align: center;">
+                <h3>
+                    <span class="create-text">Create a</span>
+                    <span class="new-account-text">New Account</span>
+                </h3>
+            </div>
+
+           
+            <div style="padding-top: 10px;">
+                <a href="{% provider_login_url 'google' %}">Login with Google</a>
+            </div>
+        
+    </div>
+</div>
+
+    {% endblock %}

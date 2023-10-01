@@ -10,8 +10,8 @@
             {% if user.is_authenticated %}
             
               <h1 class="title" >
-                <span class="blue">Welcome </span>
-                <span class="darkblue bold">{{user.username}} 😇</span>
+                <span class="blue">Welcome,</span>
+                <span class="darkblue bold">{{google_user.name}} </span>
               </h1>
 
 
@@ -148,6 +148,7 @@
   <h1 class="title darkblue bold" style="text-align: center; padding-bottom: 2cm;">Feedbacks</h1>
   <div class="row">
     {% for feedbacks in feedback %}
+     {% if feedbacks.is_public%}
       <div class="col-md-4 mb-4">
         <div class="card" >
           <div class="card-body">
@@ -158,6 +159,7 @@
           </div>
         </div>
       </div>
+      {% endif %}
     {% endfor %}
   </div>
   <div style="text-align: center; width: 100%;padding-bottom: 2cm;">
