@@ -10,11 +10,9 @@
             {% if user.is_authenticated %}
             
               <h1 class="title" >
-                <span class="blue">Welcome,</span>
-                <span class="darkblue bold">{{google_user.name}} </span>
+                <span class="blue ">Welcome,</span>
+                <span class="darkblue bold">{{google_user.given_name}} </span>
               </h1>
-
-
             {% else %}
            
             <h1 class="title" style="font-weight: 700;">
@@ -49,7 +47,7 @@
         </div>
         <div class="col-lg-6">
             {% load static %}
-            <img style="height: 100%;width: 100%; padding-left: 1cm; padding-top: 1cm;" class="img-fluid no-bg-image"src="{% static 'images/ima.png' %}" alt="Image" class="img-fluid">
+            <img style="height: 100%;width: 100%; padding-left: 1cm; padding-top: 1cm;" class="img-fluid no-bg-image"src="{% static 'images/hom.png' %}" alt="Image" class="img-fluid">
         </div>
     </div>
 </div>
@@ -155,10 +153,10 @@
             <p class="card-text text">{{ feedbacks.text }}</p>
           </div>
           <div class="card-footer">
-            <small class="text-muted" style="font-size: 20px;"> {{ feedbacks.user.username }}</small>
+            <small class="text-muted" style="font-size: 20px;"> {{ feedbacks.user }}</small>
           </div>
         </div>
-      </div>
+       </div>
       {% endif %}
     {% endfor %}
   </div>
@@ -170,6 +168,5 @@
     {% endif %}
   </div>
 </div>
-
 
 {% endblock %}

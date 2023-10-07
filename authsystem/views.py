@@ -4,6 +4,7 @@ from django.contrib.auth import login, logout
 from django.db import IntegrityError
 from .models import CustomUser
 from django.contrib import auth
+from allauth.socialaccount.models import SocialAccount
 
 
 
@@ -34,11 +35,17 @@ from django.contrib import auth
 #                 return render(request, 'signup.html', {'already_exist': already_exist})
 
 #     return render(request, 'signup.html')
+def google_auth_callback(request):
+    # if request.user.is_authenticated and request.user.socialaccount_set.filter(provider='google').exists():
 
+    #     social_account = SocialAccount.objects.get(user=request.user, provider='google')
+    #     user_data = social_account.extra_data
+
+    return redirect('/')
 
 
 def user_login(request):
-    if request.method == 'POST':
+    if request.method == 'POST':  
         username = request.POST['username']
         password = request.POST['password']
         
@@ -62,7 +69,7 @@ def user_login(request):
     return render(request, 'login.html')
 def user_logout(request):
     logout(request)
-    return redirect('/')
+    return redirect('logapi')
 def user_profile(request):
     
     return render(request,'profile.html')

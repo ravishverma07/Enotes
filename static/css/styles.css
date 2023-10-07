@@ -119,7 +119,17 @@ nav ul li {
     border-radius: 5%;
     width: 100%;
 }
+.navtext{
+    color: rgb(255, 255, 255);
+    transition:  transform 0.2s ease-in-out;
+}
 
+.navtext:hover{
+    transform: scale(1.2);
+    color: azure;
+    font-weight: 400;
+
+}
 .custom-button {
     display: inline-block;
     padding: 5px 10px;
@@ -130,22 +140,27 @@ nav ul li {
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    transition:  transform 0.2s ease-in-out;
   }
   
   .custom-button:hover {
-    background-color: #494242;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8); 
+    transform: scale(1.1);
+    cursor: pointer;
+   
+   
   }
 .card {
     background-color: aliceblue;
     min-height: 270px;
     max-height: 270px;
     box-shadow: 0 0px 10px rgba(49, 49, 49, 0.8);
+    transition:  transform 0.2s ease-in-out;
 }
 
 .card:hover {
-    
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8); 
+    transform: scale(1.1);
+    cursor: pointer;
+   
   }
 .card-body{
     display: flex;
@@ -157,18 +172,20 @@ nav ul li {
     width: 40px;
     margin: 0%; 
     border-radius: 50%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
+    transition:  transform 0.2s ease-in-out;
 }
 .profilepic:hover {
-    
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8); 
+    transform: scale(1.3);
+    cursor: pointer;
   }
 .over {
     max-height: 110px;
     overflow-y: auto;
     font-size: 15px;
     color: rgb(0, 64, 138);
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
 }
 
 .over::-webkit-scrollbar {

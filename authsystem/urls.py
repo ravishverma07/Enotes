@@ -6,6 +6,7 @@ urlpatterns = [
   path('logout',views.user_logout, name="logout"),
   path('profile',views.user_profile, name="profile"),
   path('logapi',views.logapi, name="logapi"),
-  path('',include('allauth.urls')),
+  path('google_auth_callback',views.google_auth_callback, name="google_auth_callback"),
+
   
 ]

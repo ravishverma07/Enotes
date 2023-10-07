@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block upload_notes %}
+
+<div class="bg-image">
+    <div class="form-container-wrapper" style="align-items: start; padding-top: 1cm;">
+        <div class="shadow" >
+            <form action="{% url 'upload_notes' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div style="text-align: center;">
+                    <h3>
+                        <span class="bold" style="color: azure;">Contribute With Us</span>
+                    </h3>
+                </div>
+            
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title of your Notes</label>
+                    <input type="text" class="form-control" placeholder="Topic name" name="title" id="title" required>
+                </div>
+            
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" placeholder="Description" name="description" id="description" required></textarea>
+                </div>
+            
+                <div class="mb-3">
+                    <label for="subject" class="form-label">Select a Subject</label>
+                    <select class="form-select" name="subject" id="subject" required>
+                        <option value="" disabled selected>Select a subject</option>
+                        <option value="Subject 1">Subject 1</option>
+                        <option value="Subject 2">Subject 2</option>
+                        <option value="Subject 3">Subject 3</option>
+                        <option value="Subject 4">Subject 4</option>
+                        <option value="Subject 5">Subject 5</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="pdf_file" class="form-label">Upload a PDF File</label>
+                    <input type="file" class="form-control" name="pdf_file" id="pdf_file" accept=".pdf" required>
+                </div>
+            
+                <div class="mb-3">
+                    {% if thank %}
+                    <div class="alert alert-success">{{ thank }}</div>
+                    {% endif %}
+                </div>
+            
+                <div style="padding-top: 3px; text-align: center;">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+    
+
+{% endblock %}

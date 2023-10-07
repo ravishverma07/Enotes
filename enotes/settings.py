@@ -98,6 +98,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'main.contxt.google_user_data',
+                'main.contxt.static_images',
             ],
         },
     },
@@ -106,7 +107,7 @@ SOCIALACCOUNT_LOGIN_ON_GET=True
 WSGI_APPLICATION = 'enotes.wsgi.application'
 
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'google_auth_callback'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
