@@ -22,29 +22,29 @@ def notes(request):
 
 def cpro(request):
 
-    notes = Note.objects.all()
+    notes = Note.objects.filter(subject="C Programming")
     return render(request,'c_programming.html', {'notes' : notes})
 
 def office(request):
 
-    notes = Note.objects.all()
-    return render(request,'c_programming.html', {'notes' : notes})
+    notes = Note.objects.filter(subject="Office Automation Tools")
+    return render(request,'office.html', {'notes' : notes})
 
 
 def cf(request):
 
-    notes = Note.objects.all()
-    return render(request,'c_programming.html', {'notes' : notes})
+    notes = Note.objects.filter(subject="Computer Fundamentals")
+    return render(request,'cf.html', {'notes' : notes})
 
 def eng(request):
 
-    notes = Note.objects.all()
-    return render(request,'c_programming.html', {'notes' : notes})
+    notes = Note.objects.filter(subject="English")
+    return render(request,'eng.html', {'notes' : notes})
 
 def maths(request):
 
-    notes = Note.objects.all()
-    return render(request,'c_programming.html', {'notes' : notes})
+    notes = Note.objects.filter(subject="Maths")
+    return render(request,'maths.html', {'notes' : notes})
 
 def about(request):
     return render(request,"about.html")
@@ -82,4 +82,24 @@ def feedback(request):
     return render(request,'feedback.html',{'thank': thank})
 
 def upload_notes(request):
-    return render(request,"upload_notes.html")
+    thank = ''
+    if request.method == 'POST':
+        title = request.POST['title']
+        description = request.POST['description']
+        subject = request.POST['subject']
+        pdf_file = request.FILES['pdf_file']
+        user = request.user
+
+       
+ 
+        note = Note(title=title,
+                    description=description,
+                    subject=subject,
+                    pdf_file=pdf_file,
+                    user=user)
+        
+        note.save()
+        
+        thank = f"Thank You {user} for Contributing"
+
+    return render(request,"upload_notes.html",{'thank': thank})

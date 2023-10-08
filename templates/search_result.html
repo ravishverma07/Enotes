@@ -8,10 +8,10 @@
         <span style="color: rgb(29, 133, 218);">Showing results for - </span>
         <span style="color: rgb(0, 4, 87);">{{query}}</span>
     </h1>
-    {% if notes %}
     <div style="padding-top: 2cm;" class="row">
         {% for note in notes %}
-        <div class="col-md-4 mb-4">
+         {% if note.is_public %}
+          <div class="col-md-4 mb-4">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title heading" style="text-align: center;">{{ note.title }}</h5>
@@ -25,18 +25,16 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">By: {{ note.author.username }}</small>
+                    <small class="text-muted">By: {{ note.user.username }}</small>
                 </div>
             </div>
-        </div>
-        {% if forloop.counter|divisibleby:3 and not forloop.last %}
-        </div><div class="row">
-        {% endif %}
+          </div>
+         {% else %}
+          <p>No matching notes found.</p>
+         {% endif %}
         {% endfor %}
     </div>
-    {% else %}
-    <p>No matching notes found.</p>
-    {% endif %}
+
 </div>
 
 
