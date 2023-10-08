@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load socialaccount %}
 {% block login%}
 
 
@@ -9,8 +11,8 @@
             {% csrf_token %}
             <div style="text-align: center;">
                 <h3>
-                    <span class="create-text">Thanks for</span>
-                    <span class="new-account-text">Joining Us!!</span>
+                    
+                    <span class="new-account-text"> Login </span>
                 </h3> 
             </div>
             <div class="mb-3">
@@ -37,7 +39,10 @@
             </div>
             <div style="text-align: center;">
                 
-                <a href="{% url 'logapi'%}" class="mb-3 form-label">continue with Google</a>
+                <a href="{% provider_login_url 'google' %}" class="google-login-button custom-button">
+                    <img src="{% static 'images/google-logo.png' %}"  class="google-logo">
+                    Login with Google
+                </a>
             </div>
         </form>
     </div>

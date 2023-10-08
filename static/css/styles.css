@@ -235,6 +235,24 @@ select.form-select {
     width: 100%;
     height: 100%;
 }
+.google-login-button {
+    display: inline-block;
+    background-color: #ffffff; /* Google Blue */
+    color: rgb(0, 132, 248);
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Style for the Google logo image */
+.google-logo {
+    width: 20px; /* Adjust the width as needed */
+    height: 20px; /* Adjust the height as needed */
+    margin-right: 10px; /* Spacing between the image and text */
+    vertical-align: middle;
+}
   
 @media (max-width: 1000px) {
     .title {

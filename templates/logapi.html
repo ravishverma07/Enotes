@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load socialaccount %}
 {% block google %}
 
@@ -16,8 +17,11 @@
             </div>
 
            
-            <div style="padding-top: 10px;">
-                <a href="{% provider_login_url 'google' %}">Login with Google</a>
+            <div style="padding-top: 10px;text-align: center;">
+                <a href="{% provider_login_url 'google' %}" class="google-login-button custom-button">
+                    <img src="{% static 'images/google-logo.png' %}"  class="google-logo">
+                    Login with Google
+                </a>
             </div>
         
     </div>
