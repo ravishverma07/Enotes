@@ -1,0 +1,288 @@
+/* styles.css */
+
+.navbar {
+    padding-top: 0px; 
+    padding-bottom: 0px;
+}
+
+nav ul li {
+    margin: 1px 30px;
+}
+
+.navbar ul li.special-margin {
+    margin: 1px 15px; /* Adjust this value as needed */
+}
+
+.dropdown-menu-center {
+    left: 0% !important;
+    transform: translateX(-50%);
+}
+
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 0px 15px rgba(36, 35, 35, 0.8); 
+}
+
+.shadow {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8); 
+}
+
+.search-form {
+    margin-top: 35px; 
+}
+.dropdown-center {
+    left: 0% ;
+    transform: translateX(-50%); 
+    top: 100% ;   
+  }
+select.form-select {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0); 
+    
+}
+
+ 
+.bg-image {
+    background-image: url('/static/images/signup2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; 
+    position: fixed;
+    width: 100%;
+    height: 100%;      
+}
+
+.form-container-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.form-container {
+    
+    position: relative;
+    width: 400px;
+    max-width: 90%;
+    margin-top: -100px; 
+    background-color: rgba(67, 62, 116, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    overflow: auto;
+    text-align: left;
+}
+
+.form-label {
+    color: rgb(255, 255, 255);
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+.create-text {
+    color: aliceblue;
+}
+
+.new-account-text {
+    color: aqua;
+}
+
+.title {
+    font-size: 3rem; 
+    font-weight: 700;
+    color: rgb(29, 133, 218);
+}
+
+.heading {
+    font-size: 25px;
+    font-weight: 700;
+    color: rgb(16, 0, 134);
+}
+
+.text {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgb(0, 64, 138);
+}
+
+.blue {
+    color: rgb(29, 133, 218);
+}
+
+.darkblue {
+    color: rgb(16, 0, 134);
+}
+
+.bold {
+    font-weight: 800;
+}
+
+.intro-section{
+    background: rgb(0, 14, 121);
+    border-radius: 5%;
+    width: 100%;
+}
+.navtext{
+    color: rgb(255, 255, 255);
+    transition:  transform 0.2s ease-in-out;
+}
+
+.navtext:hover{
+    transform: scale(1.2);
+    color: azure;
+    font-weight: 400;
+
+}
+.about-pic{
+    box-shadow: 0 0px 15px rgba(36, 35, 35, 0.8);
+}
+
+.contributor{
+    height: 210px; /* Remove fixed height */
+    width: 150px;
+    margin: 20px; /* Add margin for spacing */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text horizontally */
+    padding: 10px; /* Add padding for spacing */
+    transition:  transform 0.2s ease-in-out;
+
+}
+.contributor:hover{
+    transform: scale(1.5);
+    font-weight: 800;
+}
+
+.contributor-content {
+    margin: 10px;;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: center;
+    height: 84%;
+    width: 100%;
+    border-radius: 10%;
+   
+  }
+.custom-button {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #003869; 
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition:  transform 0.2s ease-in-out;
+  }
+  
+  .custom-button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+   
+   
+  }
+.card {
+    background-color: aliceblue;
+    min-height: 270px;
+    max-height: 270px;
+    box-shadow: 0px 10px 20px rgba(49, 49, 49, 0.8);
+    transition:  transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+   
+  }
+.card-body{
+    display: flex;
+    flex-direction: column;
+}
+
+.profilepic {
+    height: 40px; 
+    width: 40px;
+    margin: 0%; 
+    border-radius: 50%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
+    transition:  transform 0.2s ease-in-out;
+}
+.profilepic:hover {
+    transform: scale(1.3);
+    cursor: pointer;
+  }
+.over {
+    max-height: 110px;
+    overflow-y: auto;
+    font-size: 15px;
+    color: rgb(0, 64, 138);
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+
+.over::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.imageheight{
+    width: 100%;
+    height: 100%;
+}
+.google-login-button {
+    display: inline-block;
+    background-color: #ffffff; /* Google Blue */
+    color: rgb(0, 132, 248);
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Style for the Google logo image */
+.google-logo {
+    width: 20px; /* Adjust the width as needed */
+    height: 20px; /* Adjust the height as needed */
+    margin-right: 10px; /* Spacing between the image and text */
+    vertical-align: middle;
+}
+  
+@media (max-width: 1000px) {
+    .title {
+        font-size: 2rem; 
+        font-weight: 700;
+        color: rgb(29, 133, 218);
+    }
+    .heading {
+        font-size: 15px;
+        font-weight: 700;
+        color: rgb(16, 0, 134);
+    }
+    .dropdown-center {
+        left: 0%;   
+        transform: translateX(0%); 
+        max-width: 200px;
+        top: 100% ;   
+      }
+      .card {
+        margin: 10px;
+        background-color: aliceblue;
+        min-height: 270px;
+        max-height: 270px;
+        box-shadow: 0px 10px 20px rgba(49, 49, 49, 0.8);
+        transition:  transform 0.2s ease-in-out;
+    }
+    
+    .card:hover {
+        transform: scale(0.9);
+        cursor: pointer;
+  }
+
+}
