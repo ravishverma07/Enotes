@@ -36,9 +36,14 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="pdf_file" class="form-label">Upload a PDF File</label>
+                    <label for="pdf_file" class="form-label">File should be less than 300kb</label>
                     <input type="file" class="form-control" name="pdf_file" id="pdf_file" accept=".pdf" required>
                 </div>
+                <div class="mb-3">
+                    {% if error_message %}
+                    <div class="alert alert-danger">{{ error_message }}</div>
+                    {% endif %}
+                </div>                
 
                 <div class="mb-3">
                     {% if thank %}

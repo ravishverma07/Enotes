@@ -89,7 +89,11 @@ def upload_notes(request):
         subject = request.POST['subject']
         pdf_file = request.FILES['pdf_file']
         user = request.user
-
+        
+        max_size = 300 * 1024  # 300KB
+        if pdf_file.size > max_size:
+                error_message = "file should be less than 300kb"
+                return render(request, 'upload_notes.html', {'error_message': error_message})
        
  
         note = Note(title=title,

@@ -4,37 +4,41 @@
 
 
 <div class="container mt-4">
+
+    {% if notes %}
     <h1>
         <span style="color: rgb(29, 133, 218);">Showing results for - </span>
         <span style="color: rgb(0, 4, 87);">{{query}}</span>
     </h1>
     <div style="padding-top: 2cm;" class="row">
         {% for note in notes %}
-         {% if note.is_public %}
-          <div class="col-md-4 mb-4">
+        {% if note.is_public %}
+        <div class="col-md-4 mb-4">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title heading" style="text-align: center;">{{ note.title }}</h5>
                     <p class="card-text over">{{ note.description }}</p>
                     <div style="margin-top: auto;">
-                    {% if user.is_authenticated %}
-                    <a href="{{ note.pdf_file.url }}" class="custom-button" >Download PDF</a>
-                    {% else %}
-                    <a href="{% url 'login'%}" class="custom-button"> Login to Download PDF</a>
-                    {% endif %}
+                        {% if user.is_authenticated %}
+                        <a href="{{ note.pdf_file.url }}" class="custom-button">Download PDF</a>
+                        {% else %}
+                        <a href="{% url 'login'%}" class="custom-button"> Login to Download PDF</a>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="card-footer">
                     <small class="text-muted">By: {{ note.user.username }}</small>
                 </div>
             </div>
-          </div>
-         {% else %}
-          <p>No matching notes found.</p>
-         {% endif %}
+        </div>
+        {% endif %}
         {% endfor %}
     </div>
+    {% else %}
+    <h3>No notes found for {{query}}.</h3>
+    <p> Use short terms(Topic name) to get more results .</p>
 
+    {% endif %}
 </div>
 
 
