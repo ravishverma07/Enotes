@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-$^=a(l3a3_pjd-ei1t3o_0&0mrlsmt2tuwfoc&)jtzb8^jw8#v
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['enotes-1u3q.onrender.com']
+ALLOWED_HOSTS = ['enotes-1u3q.onrender.com','127.0.0.1']
 
 
 SITE_ID = 2

@@ -5,6 +5,9 @@ from django.db import IntegrityError
 from .models import CustomUser
 from django.contrib import auth
 from allauth.socialaccount.models import SocialAccount
+# from django.contrib.sites.models import Site
+# sites = Site.objects.all()
+# print(sites)
 
 
 
