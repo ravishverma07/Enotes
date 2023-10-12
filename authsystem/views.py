@@ -39,10 +39,10 @@ from allauth.socialaccount.models import SocialAccount
 
 #     return render(request, 'signup.html')
 def google_auth_callback(request):
-    if request.user.is_authenticated and request.user.socialaccount_set.filter(provider='google').exists():
+    # if request.user.is_authenticated and request.user.socialaccount_set.filter(provider='google').exists():
 
-        social_account = SocialAccount.objects.get(user=request.user, provider='google')
-        user_data = social_account.extra_data
+    #     social_account = SocialAccount.objects.get(user=request.user, provider='google')
+    #     user_data = social_account.extra_data
 
     return redirect('/')
 
