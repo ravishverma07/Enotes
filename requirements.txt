@@ -4,3 +4,4 @@ django-allauth
 gunicorn
 requests
 django-environ
+psycopg2 
