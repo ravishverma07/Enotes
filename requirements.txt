@@ -3,4 +3,4 @@ Django
 django-allauth
 gunicorn
 requests
-environ
+django-environ
