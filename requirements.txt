@@ -1,4 +1,6 @@
+dj-database-url
 Django
 django-allauth
 gunicorn
-
+requests
+environ

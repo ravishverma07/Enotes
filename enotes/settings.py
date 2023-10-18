@@ -13,15 +13,19 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os 
 import dj_database_url
+import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$^=a(l3a3_pjd-ei1t3o_0&0mrlsmt2tuwfoc&)jtzb8^jw8#v'
+SECRET_KEY =  env('DJANGO_SECRET_KEY'),
 
 
 DEBUG = True
@@ -58,9 +62,9 @@ INSTALLED_APPS = [
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'APP': {
-            'client_id': '21114626894-150nec0uqool8ah397q4lqhshsdqilrf.apps.googleusercontent.com',
-            'secret': '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',
-            'key': 'AIzaSyDc8G06sgEDOjYR_yAI0mUYm7br9dtob_Y',
+            'client_id': env('CLIENT_ID'),
+            'secret': env('CLIENT_SECRETS'),
+            'key': env('KEY'),
         },
         'SCOPE': ['profile','email',],
          'AUTH_PARAMS': {'access_type': 'online'},
@@ -121,9 +125,7 @@ DATABASES = {
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default='postgres://ravish:x8snnaEgvuj60qdLd45rMwtNgI4qCXbP@dpg-ckn66s91rp3c7397a24g-a.singapore-postgres.render.com/postgresql_3wf8'
-    )
+    'default': dj_database_url.parse(env('DATABASE_URL'))
 }
 
 
