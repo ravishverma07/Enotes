@@ -114,13 +114,7 @@ WSGI_APPLICATION = 'enotes.wsgi.application'
 LOGIN_REDIRECT_URL = 'google_auth_callback'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}'''
+
 
 import dj_database_url
 
@@ -177,6 +171,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = 'https://enotes-1u3q.onrender.com/media/' 
+MEDIA_ROOT = '/opt/render/project/src/media/'
 
