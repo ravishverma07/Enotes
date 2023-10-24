@@ -27,9 +27,9 @@
                         <p class="card-text over">{{ note.description }}</p>
                         <div style="margin-top: auto;">
                         {% if user.is_authenticated %}
-                        <a href="{{ note.pdf_file.url }}" class="custom-button" >Download PDF</a>
+                        <a href="{{ note.pdf_file.url }}" class="custom-button" >download</a>
                         {% else %}
-                        <a href="{% url 'login'%}" class="custom-button"> Login to Download PDF</a>
+                        <a href="{% url 'login'%}" class="custom-button"> Login to download</a>
                         {% endif %}
                         </div>
                     </div>
