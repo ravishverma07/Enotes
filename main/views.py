@@ -17,7 +17,7 @@ def home(request):
 
 def notes(request):
 
-    notes = Note.objects.all()
+    notes = Note.objects.order_by('-id')
     return render(request,'notes.html', {'notes' : notes})
 
 def cpro(request):
