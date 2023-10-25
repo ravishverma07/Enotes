@@ -17,12 +17,12 @@ def home(request):
 
 def notes(request):
 
-    notes = Note.objects.order_by('-id')
+    notes = Note.objects.all()
     return render(request,'notes.html', {'notes' : notes})
 
 def cpro(request):
 
-    notes = Note.objects.filter(subject="C Programming")
+    notes = Note.objects.filter(subject="C Programming").order_by('id')
     return render(request,'c_programming.html', {'notes' : notes})
 
 def office(request):
