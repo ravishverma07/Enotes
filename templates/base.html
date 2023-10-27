@@ -15,7 +15,9 @@
     </head>
 
 <body>
-{% include 'header.html'%}
+    {% block header %}
+        {% include 'header.html' %}
+    {% endblock %}
 {% block account %}
 {% endblock%}
 
@@ -62,6 +64,9 @@
 {% endblock %}
 
 {% block google %}
+{% endblock %}
+
+{% block pg %}
 {% endblock %}
 
 </body>

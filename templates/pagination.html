@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{% block header %}
+   
+{% endblock %}
+{% block pg %}
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+        {% if notes.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ notes.previous_page_number }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        {% endif %}
+        {% if notes.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ notes.next_page_number }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        {% endif %}  
+        </ul>
+    </nav>
+
+{% endblock %}
+    
+

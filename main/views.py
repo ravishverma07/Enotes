@@ -1,8 +1,13 @@
 from django.shortcuts import render ,redirect
 from .models import Note , Feedback
 from django.db.models import Q
+from django.core.paginator import Paginator
 
-
+def paginate_notes(request, notes):
+    page = request.GET.get('page')
+    paginator = Paginator(notes, 15) 
+    page_notes = paginator.get_page(page)
+    return page_notes
 
 def home(request):
 
@@ -17,33 +22,39 @@ def home(request):
 
 def notes(request):
 
-    notes = Note.objects.all()
+    note = Note.objects.all()
+    notes = paginate_notes(request, note)
     return render(request,'notes.html', {'notes' : notes})
 
 def cpro(request):
 
-    notes = Note.objects.filter(subject="C Programming").order_by('id')
+    note = Note.objects.filter(subject="C Programming").order_by('id')
+    notes = paginate_notes(request, note)
     return render(request,'c_programming.html', {'notes' : notes})
 
 def office(request):
 
-    notes = Note.objects.filter(subject="Office Automation Tools")
+    note = Note.objects.filter(subject="Office Automation Tools")
+    notes = paginate_notes(request, note)
     return render(request,'office.html', {'notes' : notes})
 
 
 def cf(request):
 
-    notes = Note.objects.filter(subject="Computer Fundamentals")
+    note = Note.objects.filter(subject="Computer Fundamentals")
+    notes = paginate_notes(request, note) 
     return render(request,'cf.html', {'notes' : notes})
 
 def eng(request):
 
-    notes = Note.objects.filter(subject="English")
+    note = Note.objects.filter(subject="English")
+    notes = paginate_notes(request, note)
     return render(request,'eng.html', {'notes' : notes})
 
 def maths(request):
 
-    notes = Note.objects.filter(subject="Maths")
+    note = Note.objects.filter(subject="Maths")
+    notes = paginate_notes(request, note)
     return render(request,'maths.html', {'notes' : notes})
 
 def about(request):

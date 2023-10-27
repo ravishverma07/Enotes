@@ -10,7 +10,7 @@ nav ul li {
 }
 
 .navbar ul li.special-margin {
-    margin: 1px 15px; /* Adjust this value as needed */
+    margin: 1px 15px; 
 }
 
 .dropdown-menu-center {
@@ -23,6 +23,35 @@ nav ul li {
     top: 0;
     z-index: 1000;
     box-shadow: 0 0px 15px rgba(36, 35, 35, 0.8); 
+}
+
+/* Customize the pagination container */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+/* Style for individual pagination items */
+.page-item {
+    margin: 0 5px; /* Adjust the margin as needed */
+}
+
+/* Style for the pagination links */
+.page-link {
+    background-color: #fafbfc;
+    color: #3e06e8;
+    border: 1px solid #007bff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Style for active pagination link */
+.page-item.active .page-link {
+    background-color: #333;
 }
 
 .shadow {
