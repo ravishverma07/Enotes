@@ -22,39 +22,39 @@ def home(request):
 
 def notes(request):
 
-    note = Note.objects.all()
+    note = Note.objects.order_by('-id')
     notes = paginate_notes(request, note)
     return render(request,'notes.html', {'notes' : notes})
 
 def cpro(request):
 
-    note = Note.objects.filter(subject="C Programming").order_by('id')
-    notes = paginate_notes(request, note)
+    notes = Note.objects.filter(subject="C Programming").order_by('id')
+    # note = paginate_notes(request, note)
     return render(request,'c_programming.html', {'notes' : notes})
 
 def office(request):
 
-    note = Note.objects.filter(subject="Office Automation Tools")
-    notes = paginate_notes(request, note)
+    notes = Note.objects.filter(subject="Office Automation Tools")
+    # note = paginate_notes(request, note)
     return render(request,'office.html', {'notes' : notes})
 
 
 def cf(request):
 
-    note = Note.objects.filter(subject="Computer Fundamentals")
-    notes = paginate_notes(request, note) 
+    notes = Note.objects.filter(subject="Computer Fundamentals")
+    # note = paginate_notes(request, note) 
     return render(request,'cf.html', {'notes' : notes})
 
 def eng(request):
 
-    note = Note.objects.filter(subject="English")
-    notes = paginate_notes(request, note)
+    notes = Note.objects.filter(subject="English")
+    # note = paginate_notes(request, note)
     return render(request,'eng.html', {'notes' : notes})
 
 def maths(request):
 
-    note = Note.objects.filter(subject="Maths")
-    notes = paginate_notes(request, note)
+    notes = Note.objects.filter(subject="Maths")
+    # note = paginate_notes(request, note)
     return render(request,'maths.html', {'notes' : notes})
 
 def about(request):

@@ -2,34 +2,42 @@
 {% load static%}
 {% block about %}
 <div class="container mt-4">
-    <div class="row">
-        <div class="col-lg-6" style="padding-top: 1cm;">
-          <h1 class="title" style="text-align: center;">
-            <span class="darkblue bold">About Us</span>
-          </h1>
-          <h2 class="" style="padding-top: 50px;">
-            <span class="heading">Designer &</span>
-            <span class="heading"> Developer</span>
-        </h2>
-          <p style="line-height: 2; padding-top: 10px;" class="text">Hello! I'm Ravish , and I'm currently a first-year student pursuing a Bachelor of Computer Applications (BCA). My journey in the world of technology and education has just begun, and I'm excited to share it with you.
+  <div class="row">
+    <div class="col-lg-6" style="padding-top: 1cm;">
+      <h1 class="title" style="text-align: center;">
+        <span class="darkblue bold">About Us</span>
+      </h1>
+      <h2 class="" style="padding-top: 50px;">
+        <span class="heading">Designer &</span>
+        <span class="heading"> Developer</span>
+      </h2>
+      <p style="line-height: 2; padding-top: 10px;" class="text">Hello! I'm Ravish , and I'm currently a first-year
+        student pursuing a Bachelor of Computer Applications (BCA). My journey in the world of technology and education
+        has just begun, and I'm excited to share it with you.
 
-            I've always been passionate about learning and helping others succeed. That's why I created this platform. It's a place where we can come together as a community of learners, freely sharing knowledge and study resources to enhance our educational experiences.
-        <h2 class="text" style="font-weight: 800;"> Become a contributor by sharing your notes </h2> 
-        <div style="padding-top: 20px;" >
-            <a href="{% url 'upload_notes' %}" class="custom-button">Upload Notes</a>
-            </div>
+        I've always been passionate about learning and helping others succeed. That's why I created this platform. It's
+        a place where we can come together as a community of learners, freely sharing knowledge and study resources to
+        enhance our educational experiences.
+      <h2 class="text" style="font-weight: 800;"> Become a contributor by sharing your notes </h2>
+      <div style="padding-top: 20px;">
+        <a href="{% url 'upload_notes' %}" class="custom-button">Upload Notes</a>
+      </div>
     </div>
 
-    <div class="col-lg-6 " style="display: flex; flex-direction: column; justify-content: center; align-items: center;padding-top: 3cm;">
-      <img style="border: 2px solid #00d5ff; border-radius: 20%; height: 200px; width: max-content;" class="img-fluid about-pic" src="{% static 'images/about.png' %}" alt="Image">
-      <h3 class="text" style="padding-top: 10px; font-weight: 800; font-family: 'Times New Roman', Times, serif; font-size: larger;">Ravish Verma</h3>
-  </div>
-  
-        
-        </div>
+    <div class="col-lg-6 "
+      style="display: flex; flex-direction: column; justify-content: center; align-items: center;padding-top: 3cm;">
+      <img style="border: 2px solid #00d5ff; border-radius: 20%; height: 200px; width: max-content;"
+        class="img-fluid about-pic" src="{% static 'images/about.png' %}" alt="Image">
+      <h3 class="text"
+        style="padding-top: 10px; font-weight: 800; font-family: 'Times New Roman', Times, serif; font-size: larger;">
+        Ravish Verma</h3>
+    </div>
 
-        <h2 class="title" style="padding-top: 50px;font-weight: 800;text-align: center;">Contributors</h2>
-        <div class="row" style="padding-top: 50px;">
+
+  </div>
+
+  <h2 class="title" style="padding-top: 50px;font-weight: 800;text-align: center;">Contributors</h2>
+  <!-- <div class="row" style="padding-top: 50px;">
           <div class="contributor">
             <img class="contributor-content" src="static/images/tanuj.png">
             <div style="background-color: rgb(93, 62, 16);width: 100%;color: rgb(252, 252, 252);font-weight: 600;">
@@ -61,9 +69,9 @@
             </div>
           </div>
 
-        </div>
-        
-       
-    </div>
-    
+        </div> -->
+
+
+</div>
+
 {% endblock %}
