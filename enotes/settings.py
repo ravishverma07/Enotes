@@ -119,7 +119,10 @@ LOGIN_REDIRECT_URL = 'google_auth_callback'
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.parse(env('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
+    }
 }
 
 

@@ -1,8 +1,5 @@
-{% extends 'base.html'%}
-{% block header %}
-   
-{% endblock %}
-{% block pg %}
+{% load static %}
+
     <nav aria-label="Page navigation example">
         <ul class="pagination">
         {% if notes.has_previous %}
@@ -22,6 +19,6 @@
         </ul>
     </nav>
 
-{% endblock %}
+
     
 
