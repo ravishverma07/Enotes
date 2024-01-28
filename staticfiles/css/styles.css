@@ -17,7 +17,9 @@ nav ul li {
     left: 0% !important;
     transform: translateX(-50%);
 }
-
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
 .sticky-top {
     position: sticky;
     top: 0;

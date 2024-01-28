@@ -1,5 +1,5 @@
 from django.shortcuts import render ,redirect
-from .models import Note , Feedback
+from .models import Note , Feedback, Skill
 from django.db.models import Q
 from django.core.paginator import Paginator
 
@@ -10,12 +10,13 @@ def paginate_notes(request, notes):
     return page_notes
 
 def home(request):
-
+    skills =  Skill.objects.all()
     feedback = Feedback.objects.order_by('-id')[:6]
      
     context = {
         
-            'feedback':feedback
+            'feedback':feedback,
+            'skills':skills
         }
 
     return render(request, 'home.html',context)

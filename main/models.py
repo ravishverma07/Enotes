@@ -25,4 +25,21 @@ class Feedback(models.Model):
     is_public = models.BooleanField(default=False)
     def __str__(self):
        return f'Feedback from {self.user}'
+
+
+class Skill(models.Model):
+    name = models.TextField(max_length=50)
+    def __str__(self):
+        return self.name 
+
+class SkillDetail(models.Model):
+    skill = models.ForeignKey(Skill, on_delete=models.CASCADE)
+    heading = models.TextField()
+    paragraph = models.TextField(default="")
+    question = models.TextField()
+    answer = models.TextField()
+    def __str__(self) :
+        return f'details of {self.skill}'
+   
+
            

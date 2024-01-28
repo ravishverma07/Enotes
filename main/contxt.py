@@ -31,6 +31,7 @@ def static_images(request):
         'plus': '/static/images/plus.png',
         'myprofile': '/static/images/myprofile.png',
         'logout': '/static/images/logout.png',
+        'logo': '/static/images/bcastudyarenalogo.png',
     }
 
     return {'images': images}

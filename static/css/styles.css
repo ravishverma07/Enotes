@@ -1,29 +1,143 @@
-/* styles.css */
 
-.navbar {
-    padding-top: 0px; 
-    padding-bottom: 0px;
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+   
 }
 
-nav ul li {
-    margin: 1px 30px;
-}
-
-.navbar ul li.special-margin {
-    margin: 1px 15px; 
-}
-
-.dropdown-menu-center {
-    left: 0% !important;
-    transform: translateX(-50%);
-}
-
-.sticky-top {
-    position: sticky;
+.background-video {
+    position: fixed;
     top: 0;
-    z-index: 1000;
-    box-shadow: 0 0px 15px rgba(36, 35, 35, 0.8); 
+    left: 0;
+    width: 100%;
+    height: 100%;
+ /* overflow: hidden; */
+    z-index: -1; 
+
 }
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+nav{
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    height: 43px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+
+   
+}
+nav img{
+    height: 50px;
+    width: fit-content;
+
+}
+
+#navpart2{
+    display: flex;
+    gap: 2vw;
+}
+.login-button {
+    background-color: rgb(13, 129, 0) !important;
+    
+  }
+h4.login-button a {
+    color: #fafbfc !important;
+}
+#navpart2 h4{
+    margin: 0;
+   background-color: #ffffffa5;
+   color: rgb(0, 0, 0);
+   padding: 5px 10px !important;
+   border: 1px solid #333;
+   border-radius: 50px;
+   font-size: medium;
+   position: relative;
+   overflow: hidden;
+
+   
+}
+* {
+    box-sizing: border-box;
+}
+#navpart2 h4::after{
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgb(9, 6, 6);
+    left: 0;
+    bottom: -100%;
+    border-radius: 50%;
+    transition: all ease 0.3s;
+}
+#navpart2 h4:hover::after{
+    bottom: 0%;
+    border-radius: 0%;
+}
+#navpart2 h4 a{
+    color: rgb(16, 12, 12);
+    text-decoration: none;
+    position: relative;
+    z-index: 9;
+    transition: all ease 0.4s;
+}
+
+#navpart2 h4:hover a{
+    color: #fafbfc;
+}
+#video-dark{
+    position: fixed;
+    background: rgba(0, 0, 0, 0.429) !important ;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    overflow: hidden;
+    
+}
+#page1{
+    padding-top: 60px;
+    height: 100vh;
+    width: 100%;
+    z-index: 99;
+}
+#skill-bar{
+    height: 30px;
+    width: 100%;
+  
+
+}
+#skill-bar h4{
+    padding-top: 3px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: medium;
+    z-index: 99;
+}
+#skill-element{
+    display: flex;
+    z-index: 99;
+}
+#skill-element-in:hover{
+    background-color: #d2d8d891;
+}
+#skill-bar h4 a{
+    text-decoration: none;
+    color: #fffbfb;
+}
+
 
 /* Customize the pagination container */
 .pagination {
@@ -73,15 +187,7 @@ select.form-select {
 }
 
  
-.bg-image {
-    background-image: url('/static/images/signup2.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed; 
-    position: fixed;
-    width: 100%;
-    height: 100%;      
-}
+
 
 .form-container-wrapper {
     display: flex;

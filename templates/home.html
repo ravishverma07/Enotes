@@ -2,11 +2,27 @@
 
 {% block home %}
 
-{% include 'search.html'%}
+{% include 'bg-video.html'%}
+  <div id="page1">
+    <div id="skill-bar">
+      <div id="skill-element">
+        {% for skill in skills %}
+          <div id="skill-element-in">
+             <h4><a href="">{{ skill.name }}</a></h4>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div>
+      {% include 'search.html'%}
+    </div>
+  </div>
 
-<div class="container " style="max-width: 90%;" >
-    <div class="row">
-        <div style="padding-top: 1cm;" class="col-lg-6">
+
+
+<div class="container " style="max-width: 90%;" >  
+    <div class="row" style="display: flex;">
+        <div style="padding-top: 1cm; z-index: 99;" class="col-lg-6">
             {% if user.is_authenticated %}
             
               <h1 class="title" >
@@ -169,4 +185,4 @@
   </div>
 </div>
 
-{% endblock %}
+{% endblock %}-->
