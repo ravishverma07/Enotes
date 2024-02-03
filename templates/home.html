@@ -3,23 +3,32 @@
 {% block home %}
 
 {% include 'bg-video.html'%}
-  <div id="page1">
+<div id="page1">
+  <div id="skill-section">
+    <div id="scroll-left-arrow" onclick="scrollSkills('left')">
+      <img src="/static/images/left-arrow.png" alt="">
+    </div>
     <div id="skill-bar">
       <div id="skill-element">
         {% for skill in skills %}
-          <div id="skill-element-in">
-             <h4><a href="">{{ skill.name }}</a></h4>
-          </div>
+        <div class="skill-element-in">
+          <h4><a href="">{{ skill.name }}</a></h4>
+        </div>
         {% endfor %}
       </div>
     </div>
-    <div>
-      {% include 'search.html'%}
+    <div id="scroll-right-arrow" onclick="scrollSkills('right')">
+      <img src="/static/images/right-arrow.png" alt="">
     </div>
   </div>
+    <div>
+      {% include 'search.html'%}
+  </div>
+</div>
 
 
 
+  <!-- 
 <div class="container " style="max-width: 90%;" >  
     <div class="row" style="display: flex;">
         <div style="padding-top: 1cm; z-index: 99;" class="col-lg-6">

@@ -1,9 +1,10 @@
 from allauth.socialaccount.models import SocialAccount
+from.models import CustomUser
+from django.shortcuts import redirect
 
 def google_user_data(request):
-    google_user = None
+    google_user = {}  # Initialize google_user with an empty dictionary
     if request.user.is_authenticated and request.user.socialaccount_set.filter(provider='google').exists():
-        
         try:
             social_account = SocialAccount.objects.get(user=request.user, provider='google')
             user_data = social_account.extra_data
@@ -13,16 +14,20 @@ def google_user_data(request):
             email = user_data.get('email', '')
             profile_photo_url = user_data.get('picture', '')
 
-            google_user = {'name': name,
-                           'given_name': given_name,
-                           'email': email,
-                           'profile_photo_url': profile_photo_url,
-                           }
+
+
+            google_user = {
+                'name': name,
+                'given_name': given_name,
+                'email': email,
+                'profile_photo_url': profile_photo_url,
+            }
+
+            
         except SocialAccount.DoesNotExist:
             # Handle the case when the user does not have a SocialAccount
             print("User does not have a SocialAccount")
     return {'google_user': google_user}
-
 
 
 def static_images(request):

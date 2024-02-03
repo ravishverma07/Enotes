@@ -1,9 +1,9 @@
-
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     height: 100%;
-   
+
 }
 
 .background-video {
@@ -12,8 +12,8 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
- /* overflow: hidden; */
-    z-index: -1; 
+    /* overflow: hidden; */
+    z-index: -1;
 
 }
 
@@ -23,54 +23,77 @@ video {
     object-fit: cover;
 }
 
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it's on top of other content */
+  }
+  
+  #loading-overlay img {
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+  }
+  
 
-
-nav{
+nav {
     padding-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
     width: 100%;
-    height: 43px;
+    height: 63px;
     display: flex;
     justify-content: space-between;
     position: fixed;
 
-   
+
 }
-nav img{
-    height: 50px;
+
+nav img {
+    height: 70px;
     width: fit-content;
 
 }
 
-#navpart2{
+#navpart2 {
+    padding-top: 20px;
     display: flex;
     gap: 2vw;
 }
+
 .login-button {
-    background-color: rgb(13, 129, 0) !important;
-    
-  }
+    background-color: rgb(4, 39, 0) !important;
+
+}
+
 h4.login-button a {
     color: #fafbfc !important;
 }
-#navpart2 h4{
-    margin: 0;
-   background-color: #ffffffa5;
-   color: rgb(0, 0, 0);
-   padding: 5px 10px !important;
-   border: 1px solid #333;
-   border-radius: 50px;
-   font-size: medium;
-   position: relative;
-   overflow: hidden;
 
-   
+#navpart2 h4 {
+    margin: 0;
+    background-color: #ffffffa5;
+    color: rgb(0, 0, 0);
+    padding: 5px 10px !important;
+    border: 1px solid #333;
+    border-radius: 50px;
+    font-size: medium;
+    position: relative;
+    overflow: hidden;
+
+
 }
+
 * {
     box-sizing: border-box;
 }
-#navpart2 h4::after{
+
+#navpart2 h4::after {
     content: "";
     height: 100%;
     width: 100%;
@@ -81,11 +104,13 @@ h4.login-button a {
     border-radius: 50%;
     transition: all ease 0.3s;
 }
-#navpart2 h4:hover::after{
+
+#navpart2 h4:hover::after {
     bottom: 0%;
     border-radius: 0%;
 }
-#navpart2 h4 a{
+
+#navpart2 h4 a {
     color: rgb(16, 12, 12);
     text-decoration: none;
     position: relative;
@@ -93,47 +118,85 @@ h4.login-button a {
     transition: all ease 0.4s;
 }
 
-#navpart2 h4:hover a{
+#navpart2 h4:hover a {
     color: #fafbfc;
 }
-#video-dark{
+
+#video-dark {
     position: fixed;
-    background: rgba(0, 0, 0, 0.429) !important ;
+    background: rgba(0, 0, 0, 0.429) !important;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 99;
     overflow: hidden;
-    
-}
-#page1{
-    padding-top: 60px;
-    height: 100vh;
-    width: 100%;
-    z-index: 99;
-}
-#skill-bar{
-    height: 30px;
-    width: 100%;
-  
 
 }
-#skill-bar h4{
+
+#page1 {
+    padding-top: 90px;
+    height: 100vh;
+    width: 100%;
+  
+}
+
+#skill-section {
+    display: flex;
+   
+}
+
+#skill-bar {
+ 
+    display: flex;
+    overflow-x: hidden;
+    white-space: nowrap;
+  
+}
+
+#scroll-left-arrow,
+#scroll-right-arrow {
+    color: #f4f1f1;
+  
+}
+#scroll-left-arrow img{
+   height: 20px;
+  
+}
+#scroll-right-arrow img{
+   height: 20px;
+  
+}
+
+#scroll-left-arrow {
+    left: 0;
+}
+
+#scroll-right-arrow {
+    right: 0;
+}
+
+
+#skill-bar h4 {
     padding-top: 3px;
     padding-left: 20px;
     padding-right: 20px;
     font-size: medium;
-    z-index: 99;
+   
 }
-#skill-element{
+
+#skill-element {
     display: flex;
+ }
+#skill-element-in{
     z-index: 99;
 }
-#skill-element-in:hover{
-    background-color: #d2d8d891;
+
+.skill-element-in:hover {
+    background-color: #1d1e1e91 !important;
 }
-#skill-bar h4 a{
+
+#skill-bar h4 a {
     text-decoration: none;
     color: #fffbfb;
 }
@@ -150,7 +213,8 @@ h4.login-button a {
 
 /* Style for individual pagination items */
 .page-item {
-    margin: 0 5px; /* Adjust the margin as needed */
+    margin: 0 5px;
+    /* Adjust the margin as needed */
 }
 
 /* Style for the pagination links */
@@ -169,24 +233,26 @@ h4.login-button a {
 }
 
 .shadow {
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
 }
 
 .search-form {
-    margin-top: 35px; 
-}
-.dropdown-center {
-    left: 0% ;
-    transform: translateX(-50%); 
-    top: 100% ;   
-  }
-select.form-select {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0); 
-    
+    margin-top: 35px;
 }
 
- 
+.dropdown-center {
+    left: 0%;
+    transform: translateX(-50%);
+    top: 100%;
+}
+
+select.form-select {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+
+}
+
+
 
 
 .form-container-wrapper {
@@ -197,11 +263,11 @@ select.form-select {
 }
 
 .form-container {
-    
+
     position: relative;
     width: 400px;
     max-width: 90%;
-    margin-top: -100px; 
+    margin-top: -100px;
     background-color: rgba(67, 62, 116, 0.7);
     border-radius: 10px;
     padding: 20px;
@@ -226,7 +292,7 @@ select.form-select {
 }
 
 .title {
-    font-size: 3rem; 
+    font-size: 3rem;
     font-weight: 700;
     color: rgb(29, 133, 218);
 }
@@ -255,111 +321,125 @@ select.form-select {
     font-weight: 800;
 }
 
-.intro-section{
+.intro-section {
     background: rgb(0, 14, 121);
     border-radius: 5%;
     width: 100%;
-  
-}
-.navtext{
-    color: rgb(255, 255, 255);
-    transition:  transform 0.2s ease-in-out;
+
 }
 
-.navtext:hover{
+.navtext {
+    color: rgb(255, 255, 255);
+    transition: transform 0.2s ease-in-out;
+}
+
+.navtext:hover {
     transform: scale(1.2);
     color: azure;
     font-weight: 400;
 
 }
-.about-pic{
+
+.about-pic {
     box-shadow: 0 0px 15px rgba(36, 35, 35, 0.8);
 }
 
-.contributor{
-    height: 210px; /* Remove fixed height */
+.contributor {
+    height: 210px;
+    /* Remove fixed height */
     width: 150px;
-    margin: 20px; /* Add margin for spacing */
+    margin: 20px;
+    /* Add margin for spacing */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    text-align: center; /* Center text horizontally */
-    padding: 10px; /* Add padding for spacing */
-    transition:  transform 0.2s ease-in-out;
+    align-items: center;
+    /* Center content horizontally */
+    text-align: center;
+    /* Center text horizontally */
+    padding: 10px;
+    /* Add padding for spacing */
+    transition: transform 0.2s ease-in-out;
 
 }
-.contributor:hover{
+
+.contributor:hover {
     transform: scale(1.5);
     font-weight: 800;
 }
 
 .contributor-content {
-    margin: 10px;;
+    margin: 10px;
+    ;
     display: flex;
     flex-direction: column;
-    justify-content:flex-start;
+    justify-content: flex-start;
     align-items: center;
     height: 84%;
     width: 100%;
     border-radius: 10%;
-   
-  }
+
+}
+
 .custom-button {
     display: inline-block;
     padding: 5px 10px;
-    background-color: #003869; 
+    background-color: #003869;
     color: white;
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    transition:  transform 0.2s ease-in-out;
-  }
-  
-  .custom-button:hover {
+    transition: transform 0.2s ease-in-out;
+}
+
+.custom-button:hover {
     transform: scale(1.1);
     cursor: pointer;
-   
-   
-  }
+
+
+}
+
 .card {
     background-color: aliceblue;
     min-height: 270px;
     max-height: 270px;
     box-shadow: 0px 10px 20px rgba(49, 49, 49, 0.8);
-    transition:  transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
 }
 
 .card:hover {
     transform: scale(1.1);
     cursor: pointer;
-   
-  }
-.card-body{
+
+}
+
+.card-body {
     display: flex;
     flex-direction: column;
 }
 
 .profilepic {
-    height: 40px; 
+    height: 40px;
     width: 40px;
-    margin: 0%; 
+    margin: 0%;
     border-radius: 50%;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
-    transition:  transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
 }
+
 .profilepic:hover {
     transform: scale(1.3);
     cursor: pointer;
-  }
+}
+
 .over {
     max-height: 110px;
     overflow-y: auto;
     font-size: 15px;
     color: rgb(0, 64, 138);
-    scrollbar-width: none; 
-    -ms-overflow-style: none; 
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .over::-webkit-scrollbar {
@@ -367,13 +447,15 @@ select.form-select {
     height: 0;
 }
 
-.imageheight{
+.imageheight {
     width: 100%;
     height: 100%;
 }
+
 .google-login-button {
     display: inline-block;
-    background-color: #ffffff; /* Google Blue */
+    background-color: #ffffff;
+    /* Google Blue */
     color: rgb(0, 132, 248);
     padding: 10px 20px;
     border-radius: 4px;
@@ -384,41 +466,47 @@ select.form-select {
 
 /* Style for the Google logo image */
 .google-logo {
-    width: 20px; /* Adjust the width as needed */
-    height: 20px; /* Adjust the height as needed */
-    margin-right: 10px; /* Spacing between the image and text */
+    width: 20px;
+    /* Adjust the width as needed */
+    height: 20px;
+    /* Adjust the height as needed */
+    margin-right: 10px;
+    /* Spacing between the image and text */
     vertical-align: middle;
 }
-  
+
 @media (max-width: 1000px) {
     .title {
-        font-size: 2rem; 
+        font-size: 2rem;
         font-weight: 700;
         color: rgb(29, 133, 218);
     }
+
     .heading {
         font-size: 15px;
         font-weight: 700;
         color: rgb(16, 0, 134);
     }
+
     .dropdown-center {
-        left: 0%;   
-        transform: translateX(0%); 
+        left: 0%;
+        transform: translateX(0%);
         max-width: 200px;
-        top: 100% ;   
-      }
-      .card {
+        top: 100%;
+    }
+
+    .card {
         margin: 10px;
         background-color: aliceblue;
         min-height: 270px;
         max-height: 270px;
         box-shadow: 0px 10px 20px rgba(49, 49, 49, 0.8);
-        transition:  transform 0.2s ease-in-out;
+        transition: transform 0.2s ease-in-out;
     }
-    
+
     .card:hover {
         transform: scale(0.9);
         cursor: pointer;
-  }
+    }
 
 }

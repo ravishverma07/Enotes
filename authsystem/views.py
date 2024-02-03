@@ -44,7 +44,7 @@ def google_auth_callback(request):
     #     social_account = SocialAccount.objects.get(user=request.user, provider='google')
     #     user_data = social_account.extra_data
 
-    return redirect('/')
+    return redirect('google-data')
 
 
 def user_login(request):

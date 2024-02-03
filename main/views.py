@@ -1,13 +1,46 @@
 from django.shortcuts import render ,redirect
-from .models import Note , Feedback, Skill
+from .models import Note , Feedback, Skill ,CustomUser
 from django.db.models import Q
 from django.core.paginator import Paginator
+from allauth.socialaccount.models import SocialAccount
+
 
 def paginate_notes(request, notes):
     page = request.GET.get('page')
     paginator = Paginator(notes, 15) 
     page_notes = paginator.get_page(page)
     return page_notes
+
+
+def google_data(request):
+  
+    if request.user.is_authenticated and request.user.socialaccount_set.filter(provider='google').exists():
+    
+            social_account = SocialAccount.objects.get(user=request.user, provider='google')
+            user_data = social_account.extra_data
+
+            name = user_data.get('name', '')
+            given_name = user_data.get('given_name', '')
+            email = user_data.get('email', '')
+            profile_photo_url = user_data.get('picture', '')
+
+            custom_user, created = CustomUser.objects.get_or_create(email=email)
+            custom_user.name = name
+            custom_user.email = email
+            custom_user.profile_photo_url = profile_photo_url
+            custom_user.save()
+
+
+           
+            if created==True:
+                # Redirect to a page for new users
+                return redirect('notes')
+            else:
+           
+                return redirect('about')
+    else:
+        return redirect('/')       
+ 
 
 def home(request):
     skills =  Skill.objects.all()
